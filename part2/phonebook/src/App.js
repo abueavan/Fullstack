@@ -43,6 +43,7 @@ const App = () => {
     else {
       if(window.confirm(`${newName} has already added to phonebook,replace the old number with a new one?`)){
         const id = persons.find(p => p.name === newName).id
+        console.log(id)
         personService
         .update(id, personObject)
         .then(returnedPerson => {
@@ -54,7 +55,7 @@ const App = () => {
           setInfo(null)
         }, 3000)
         })
-        .catch(errro => {
+        .catch(error => {
           setErorr(`Information of ${newName} has already removed from server`)
           setTimeout(() => {
             setErorr(null)
